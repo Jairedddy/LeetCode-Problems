@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        List<String> list = new ArrayList<>();
+        for (int i=0 ; i<input.length() ; i++){
+            for (int j=i+1 ; j<= input.length() ; j++){
+                list.add(input.substring(i,j));
+            }
+        }
+        int max = 0;
+        for (String s : list){
+            Set<Character> set = new HashSet<>();
+            for (int i=0 ; i<s.length() ; i++){
+                set.add(s.charAt(i));
+            }
+            if (set.size() == s.length()){
+                max = Math.max(max, set.size());
+            }
+        }
+        System.out.println(max);
+    }
+}
